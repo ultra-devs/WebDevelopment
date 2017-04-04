@@ -15,6 +15,8 @@ import java.util.List;
 
 import org.apache.commons.dbutils.DbUtils;
 
+import com.dev.api.json.beans.Hits;
+
 public class ApacheDerby {
 
 	private static String DEFAULT_DB_NAME = "DerbyDataBaseEmbedded";
@@ -143,69 +145,9 @@ public class ApacheDerby {
 		return basecounter;
 	}
 
-	public static int getLastTwoWeekUsage(Connection connection) {
 
-		String fetchHits = "select count(ID), DATE(Time_Stamp) from    " + DEFAULT_TABLE_NAME
-				+ " where Time_Stamp>TIMESTAMP('" + getTwoWeekOldDate() + "', '00.00.00') group by DATE(Time_Stamp)";
-		System.out.println(fetchHits);
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		int basecounter = 58000;
-		// Timestamp timestamp = new
-		// Timestamp(Calendar.getInstance().getTime().getTime());
-		try {
-			stmt = connection.prepareStatement(fetchHits);
-			// stmt.setTimestamp(1, timestamp);
 
-			rs = stmt.executeQuery();
-			if (rs.next()) {
-				basecounter = rs.getInt(1);
-				System.out.println(basecounter);
-			}
-
-			// System.out.println(basecounter);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-
-			DbUtils.closeQuietly(stmt);
-		}
-
-		return basecounter;
-	}
-
-	public static int getLastTwoWeekUserInfo(Connection connection) {
-
-		String fetchHits = "select count(distinct Loginuser), DATE(Time_Stamp) from   " + DEFAULT_TABLE_NAME
-				+ " where Time_Stamp>TIMESTAMP('" + getTwoWeekOldDate() + "', '00.00.00') group by DATE(Time_Stamp)";
-		System.out.println(fetchHits);
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		int basecounter = 58000;
-		// Timestamp timestamp = new
-		// Timestamp(Calendar.getInstance().getTime().getTime());
-		try {
-			stmt = connection.prepareStatement(fetchHits);
-			// stmt.setTimestamp(1, timestamp);
-
-			rs = stmt.executeQuery();
-			if (rs.next()) {
-				basecounter = rs.getInt(1);
-				System.out.println(basecounter);
-			}
-
-			// System.out.println(basecounter);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-
-			DbUtils.closeQuietly(stmt);
-		}
-
-		return basecounter;
-	}
+	
 
 	/***
 	 * getting usage details
@@ -264,19 +206,4 @@ public class ApacheDerby {
 	
 
 	
-	private static String getTwoWeekOldDate() {
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-		Date date = new Date();
-		String todate = dateFormat.format(date);
-
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, -14);
-		Date todate1 = cal.getTime();
-		System.out.println();
-		return dateFormat.format(todate1);
-
-	}
-
 }

@@ -20,9 +20,15 @@ public class TestExe {
 		
 		if (connection != null) {
 			try {
-				// System.out.println(connection.getMetaData().getURL());
-				// createAPIVIEWERHITS(connection);
-
+				//create some test data
+				ApacheDerby.updateApiViewerHits(connection, "ultra-dev", "/home");
+				ApacheDerby.updateApiViewerHits(connection, "ultra-test", "/test");
+				ApacheDerby.updateApiViewerHits(connection, "ultra-manager", "/manage");
+				ApacheDerby.getHitCount(connection);
+				
+				
+				
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

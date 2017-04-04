@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Apr 03 18:51:16 CDT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-015b-363a-d31e-00000e810940 
+on database directory C:\Users\shanky\workspace\eclipse\webdevlopment\dhtmlx\DtmlXChart\data\DerbyDataBaseEmbedded with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/C:/Users/shanky/workspace/eclipse/webdevlopment/dhtmlx/DtmlXChart/WebContent/WEB-INF/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=C:\Users\shanky\workspace\eclipse\webdevlopment\dhtmlx\DtmlXChart
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+
+
+
+
+
+-->
+
+
+<html>
+<head>
+	<title>Labels</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="css/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="css/dhtmlxchart.css"/>
+	<script src="scripts/dhtmlxchart.js"></script>
+	<!-- jquery/bootstrap   -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+<!--	<script src="../common/testdata.js"></script>-->
+	<script>
+		var myBarChart;
+		function doOnLoad() {
+            var dataset_colors = [
+	{ id:1, sales:20, year:"Apr-02", color: "#ee4339"},
+	{ id:2, sales:55, year:"03", color: "#ee9336"},
+	{ id:3, sales:40, year:"04", color: "#eed236"},
+	{ id:4, sales:78, year:"05", color: "#d3ee36"},
+	{ id:5, sales:61, year:"06", color: "#a7ee70"},
+	{ id:6, sales:35, year:"07", color: "#58dccd"},
+	{ id:7, sales:80, year:"08", color: "#36abee"},
+	{ id:8, sales:50, year:"09", color: "#476cee"},
+	{ id:9, sales:65, year:"10", color: "#a244ea"},
+	{ id:10, sales:19, year:"11", color: "#e33fc7"},
+    { id:11, sales:20, year:"02", color: "#ee4339"},
+	{ id:12, sales:55, year:"03", color: "#ee9336"},
+	{ id:13, sales:40, year:"04", color: "#eed236"},
+	{ id:14, sales:78, year:"05", color: "#d3ee36"},
+	{ id:15, sales:61, year:"06", color: "#a7ee70"},
+	{ id:16, sales:35, year:"07", color: "#58dccd"},
+	{ id:17, sales:80, year:"08", color: "#36abee"},
+	{ id:18, sales:50, year:"09", color: "#476cee"},
+	{ id:19, sales:65, year:"10", color: "#a244ea"},            
+];
+            
+            var dataset_colors1 =    [{"count":"3","date":"2017-04-03"}];
+
+            
+			myBarChart = new dhtmlXChart({
+				view:"bar",
+				container:"chartDiv",
+				value:"#sales#",
+				label:"#sales#",
+				color:"#color#",
+				radius:0,
+				width:20,
+				tooltip:{
+					template:"#sales#"
+				},
+				xAxis:{
+					title:"Hits Last 2 weeks",
+					template:"'#year#",
+					lines: false
+				},
+				padding:{
+					left:10,
+					right:10,
+					top:50
+				}
+			});
+			myBarChart.parse(dataset_colors,"json");
+		}
+	</script>
+</head>
+<body onload="doOnLoad();">
+    <div class="container" style="background-color: lightblue">
+	<div id="chartDiv" style="width:600px;height:250px;margin:20px;background-color: lightblue;position:center"></div>
+     
+    </div>
+    
+</body>
+</html>
