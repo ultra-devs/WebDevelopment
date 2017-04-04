@@ -27,62 +27,126 @@
 	$(document)
 			.ready(
 					function() {
-						var dataset_colors2 = "";
-						$
-								.get(
-										'http://localhost:8080/DtmlXChart/DerbyDataPull',
-										function(data, status) {
-											// dataset_colors2 = data;
+						
+						
+						$("#showid").click(function(){
+							  // action goes here!!
+							  alert('shashank');
+							  
+							  var dataset_colors2 = "";
+								$
+										.get(
+												'http://localhost:8080/DtmlXChart/DerbyDataPull',
+												function(data, status) {
+													// dataset_colors2 = data;
 
-											//console.log(dataset_colors2);
-											var myBarChart;
-											myBarChart = new dhtmlXChart(
-													{
-														view : "bar",
-														container : "chartDiv",
-														value : "#count#",
-														label : "#count#",
-														color : "#color#",
-														radius : 3,
-														width : 20,
-														gradient : "rising",
+													//console.log(dataset_colors2);
+													var myBarChart;
+													myBarChart = new dhtmlXChart(
+															{
+																view : "bar",
+																container : "chartDiv",
+																value : "#count#",
+																label : "#count#",
+																color : "#color#",
+																radius : 3,
+																width : 20,
+																gradient : "rising",
 
-														tooltip : {
-															template : "#count#"
-														},
+																tooltip : {
+																	template : "#count#"
+																},
 
-														xAxis : {
-															title : "HITS (Last 2 weeks , since 03-31-17)",
-															template : "'#date#",
-															lines : false
-														},
-														yAxis : {
-															title : "Visits",
-															start : 0,
-															end : 1000,
-															step : 100
-														}
-													/* ,
-																	padding:{
-																		left:10,
-																		right:10,
-																		top:50
-																	} */
-													});
-											myBarChart.parse(data, "json");
-											//}
+																xAxis : {
+																	title : "Usage Pattern (Last 2 weeks , since 03-31-17)",
+																	template : "'#date#",
+																	lines : false
+																},
+																yAxis : {
+																	title : "Visits",
+																	start : 0,
+																	end : 1000,
+																	step : 100
+																}
+															/* ,
+																			padding:{
+																				left:10,
+																				right:10,
+																				top:50
+																			} */
+															});
+													myBarChart.parse(data, "json");
+													
+													var myBarChart1;
+													myBarChart1 = new dhtmlXChart(
+															{
+																view : "bar",
+																container : "chartDiv1",
+																value : "#count#",
+																label : "#count#",
+																color : "#color#",
+																radius : 3,
+																width : 20,
+																gradient : "rising",
 
-										});
+																tooltip : {
+																	template : "#count#"
+																},
 
-					});
+																xAxis : {
+																	title : "User Activity (Last 2 weeks , since 03-31-17)",
+																	template : "'#date#",
+																	lines : false
+																},
+																yAxis : {
+																	title : "Active Users#",
+																	start : 0,
+																	end : 100,
+																	step : 10
+																}
+															/* ,
+																			padding:{
+																				left:10,
+																				right:10,
+																				top:50
+																			} */
+															});
+													myBarChart1.parse(data, "json");
+													//}
+
+												});
+
+						
+								$("#chartid").show();	
+						}); 
+						
+						
+	
+	
+});
 </script>
 </head>
 <body>
-	<div class="container" style="width: 750px; position: justified">
-		<div id="chartDiv"
+
+<button id="showid">test</button>
+<p>shashank</p>
+<div id="chartid" class="container" style="width: 850px; position: justified; display:none" >
+		<!-- <div id="chartDiv"
 			style="width: 600px; height: 250px; margin: 20px; position: center"></div>
+<div id="chartDiv1"
+			style="width: 600px; height: 250px; margin: 20px; position: center"></div> -->
+<hr>
+<table>
+		
+		<tr>
+			<td><div id="chartDiv" style="width:500px;height:350px;border:1px solid #c0c0c0;"></div></td>
+			<td><div id="chartDiv1" style="width:500px;height:350px;border:1px solid #c0c0c0;"></div></td>
+		</tr>
+	</table>
 
 	</div>
+<p>shashank</p>
+	
 
 </body>
 </html>
